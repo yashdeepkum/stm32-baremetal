@@ -1,0 +1,23 @@
+21:21:58 **** Incremental Build of configuration Debug for project bluepillled_blink ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -Dstm32f103x6 -c -I../Inc -I"D:/STM32CubeIDE/chip header/CMSIS/Device/ST/STM32F1xx/Include" -I"D:/STM32CubeIDE/chip header/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "bluepillled_blink.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\STM32CubeIDE\bluepillled_blink\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="bluepillled_blink.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: bluepillled_blink.elf
+ 
+arm-none-eabi-size  bluepillled_blink.elf 
+arm-none-eabi-objdump -h -S bluepillled_blink.elf  > "bluepillled_blink.list"
+arm-none-eabi-objcopy  -O ihex bluepillled_blink.elf  "bluepillled_blink.hex"
+   text	   data	    bss	    dec	    hex	filename
+  19240	    456	   2160	  21856	   5560	bluepillled_blink.elf
+arm-none-eabi-objcopy  -O binary bluepillled_blink.elf  "bluepillled_blink.bin"
+Finished building: default.size.stdout
+ 
+Finished building: bluepillled_blink.hex
+Finished building: bluepillled_blink.bin
+ 
+Finished building: bluepillled_blink.list
+ 
+ 
+
+21:22:00 Build Finished. 0 errors, 0 warnings. (took 2s.239ms)
+

@@ -1,0 +1,26 @@
+22:04:30 **** Build of configuration Debug for project lora_receiver ****
+make -j8 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c8tx.d" -MT"Startup/startup_stm32f103c8tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -Dstm32f103x6 -c -I../Inc -I"D:/STM32CubeIDE/chip header/CMSIS/Device/ST/STM32F1xx/Include" -I"D:/STM32CubeIDE/chip header/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -Dstm32f103x6 -c -I../Inc -I"D:/STM32CubeIDE/chip header/CMSIS/Device/ST/STM32F1xx/Include" -I"D:/STM32CubeIDE/chip header/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -Dstm32f103x6 -c -I../Inc -I"D:/STM32CubeIDE/chip header/CMSIS/Device/ST/STM32F1xx/Include" -I"D:/STM32CubeIDE/chip header/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "lora_receiver.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\STM32CubeIDE\lora_receiver\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lora_receiver.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lora_receiver.elf
+ 
+arm-none-eabi-size  lora_receiver.elf 
+arm-none-eabi-objdump -h -S lora_receiver.elf  > "lora_receiver.list"
+arm-none-eabi-objcopy  -O ihex lora_receiver.elf  "lora_receiver.hex"
+   text	   data	    bss	    dec	    hex	filename
+   6388	     80	   1896	   8364	   20ac	lora_receiver.elf
+arm-none-eabi-objcopy  -O binary lora_receiver.elf  "lora_receiver.bin"
+Finished building: default.size.stdout
+ 
+Finished building: lora_receiver.bin
+Finished building: lora_receiver.hex
+ 
+ 
+Finished building: lora_receiver.list
+ 
+
+22:04:34 Build Finished. 0 errors, 0 warnings. (took 3s.931ms)
+

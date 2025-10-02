@@ -1,0 +1,10 @@
+17:43:44 **** Incremental Build of configuration Debug for project SYSTICK_INTR ****
+make -j8 all 
+arm-none-eabi-size  SYSTICK_INTR.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5032	     92	   1900	   7024	   1b70	SYSTICK_INTR.elf
+Finished building: default.size.stdout
+ 
+
+17:43:45 Build Finished. 0 errors, 0 warnings. (took 673ms)
+

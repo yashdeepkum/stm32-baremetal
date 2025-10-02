@@ -1,0 +1,17 @@
+16:10:36 **** Build of configuration Debug for project ADC_continuous ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"D:/STM32CubeIDE/STM32Cube_FW_F4_V1.28.0/CMSIS/Device/ST/STM32F4xx/Include" -I"D:/STM32CubeIDE/STM32Cube_FW_F4_V1.28.0/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/adc.d" -MT"Src/adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/adc.o"
+arm-none-eabi-gcc -o "ADC_continuous.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\STM32CubeIDE\ADC_continuous\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_continuous.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_continuous.elf
+ 
+arm-none-eabi-size  ADC_continuous.elf 
+arm-none-eabi-objdump -h -S ADC_continuous.elf  > "ADC_continuous.list"
+   text	   data	    bss	    dec	    hex	filename
+   5436	     92	   1908	   7436	   1d0c	ADC_continuous.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_continuous.list
+ 
+
+16:10:38 Build Finished. 0 errors, 0 warnings. (took 2s.30ms)
+

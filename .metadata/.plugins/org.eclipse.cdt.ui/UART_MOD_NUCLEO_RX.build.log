@@ -1,0 +1,10 @@
+21:49:51 **** Incremental Build of configuration Debug for project UART_MOD_NUCLEO_RX ****
+make -j8 all 
+arm-none-eabi-size  UART_MOD_NUCLEO_RX.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1048	      0	   1568	   2616	    a38	UART_MOD_NUCLEO_RX.elf
+Finished building: default.size.stdout
+ 
+
+21:49:52 Build Finished. 0 errors, 0 warnings. (took 618ms)
+

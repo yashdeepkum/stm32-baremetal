@@ -1,0 +1,26 @@
+16:11:06 **** Build of configuration Debug for project stmbluepill_blink ****
+make -j8 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c8tx.d" -MT"Startup/startup_stm32f103c8tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "stmbluepill_blink.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\STM32CubeIDE\stmbluepill_blink\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stmbluepill_blink.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stmbluepill_blink.elf
+ 
+arm-none-eabi-size  stmbluepill_blink.elf 
+arm-none-eabi-objdump -h -S stmbluepill_blink.elf  > "stmbluepill_blink.list"
+   text	   data	    bss	    dec	    hex	filename
+    688	      0	   1568	   2256	    8d0	stmbluepill_blink.elf
+arm-none-eabi-objcopy  -O ihex stmbluepill_blink.elf  "stmbluepill_blink.hex"
+arm-none-eabi-objcopy  -O binary stmbluepill_blink.elf  "stmbluepill_blink.bin"
+Finished building: default.size.stdout
+ 
+Finished building: stmbluepill_blink.bin
+Finished building: stmbluepill_blink.hex
+ 
+Finished building: stmbluepill_blink.list
+ 
+ 
+
+16:11:12 Build Finished. 0 errors, 0 warnings. (took 5s.694ms)
+

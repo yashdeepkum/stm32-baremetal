@@ -1,0 +1,10 @@
+D:/STM32CubeIDE/chip header/CMSIS/Include/core_cm3.h:1511:22:__NVIC_EnableIRQ	16	static
+../Src/uart.c:27:17:compute_uart_bd	16	static
+../Src/uart.c:32:13:uart_set_baudrate	24	static
+../Src/uart.c:37:6:uart2_write	16	static
+../Src/uart.c:45:6:uart2_read	4	static
+../Src/uart.c:53:6:dma1_channe7_init	24	static
+../Src/uart.c:94:6:uart2_tx_init	8	static
+../Src/uart.c:128:6:uart2_rxtx_init	8	static
+../Src/uart.c:164:5:__io_putchar	16	static
+../Src/uart.c:170:6:uart2_rxtx_interrupt	8	static

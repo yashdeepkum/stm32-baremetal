@@ -1,0 +1,62 @@
+#include "stm32f10x.h"
+
+
+#define LED_PIN     13
+
+void uart_init(void);
+void uart_send_char(char c);
+void uart_send_string(const char *str);
+void delay(volatile uint32_t s);
+
+int main(void) {
+    // --- Enable clock for GPIOC and GPIOA ---
+    RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;  // Enable GPIOC
+    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;  // Enable GPIOA (for USART1 TX)
+
+    // --- Configure PC13 as output (push-pull, 2 MHz) ---
+    GPIOC->CRH &= ~(0xF << ((LED_PIN - 8) * 4));  // Clear CNF/MODE
+    GPIOC->CRH |=  (0x2 << ((LED_PIN - 8) * 4));  // MODE13 = 10 (2MHz), CNF13 = 00 (GP output push-pull)
+
+    // --- Initialize UART1 (PA9 = TX) ---
+    uart_init();
+
+    while (1) {
+        // LED ON
+        GPIOC->BRR = (1 << LED_PIN);   // PC13 low (LED ON)
+        uart_send_string("LED ON\r\n");
+        delay(500000);
+
+        // LED OFF
+        GPIOC->BSRR = (1 << LED_PIN);  // PC13 high (LED OFF)
+        uart_send_string("LED OFF\r\n");
+        delay(500000);
+    }
+}
+
+void uart_init(void) {
+    // Enable USART1 clock
+    RCC->APB2ENR |= RCC_APB2ENR_USART1EN;
+
+    // Configure PA9 as Alternate Function Push-Pull (TX)
+    GPIOA->CRH &= ~(0xF << ((9 - 8) * 4));
+    GPIOA->CRH |=  (0x0B << ((9 - 8) * 4));  // MODE9 = 11 (50MHz), CNF9 = 10 (AF PP)
+
+    // USART1 settings: 9600 baud, 8N1
+    USART1->BRR = 0x341;      // Assuming 8 MHz clock -> 9600 baud
+    USART1->CR1 = USART_CR1_TE | USART_CR1_UE;  // Enable TX, Enable USART
+}
+
+void uart_send_char(char c) {
+    while (!(USART1->SR & USART_SR_TXE));  // Wait for TX buffer empty
+    USART1->DR = c;
+}
+
+void uart_send_string(const char *str) {
+    while (*str) {
+        uart_send_char(*str++);
+    }
+}
+
+void delay(volatile uint32_t s) {
+    for (; s > 0; s--);
+}

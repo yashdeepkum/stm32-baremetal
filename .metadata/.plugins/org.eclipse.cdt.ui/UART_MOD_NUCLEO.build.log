@@ -1,0 +1,17 @@
+20:10:07 **** Incremental Build of configuration Debug for project UART_MOD_NUCLEO ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/uart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32F103RBTx -DSTM32 -DSTM32F1 -DSTM32F103xB -c -I../Inc -I"D:/STM32CubeIDE/chip header/CMSIS/Device/ST/STM32F1xx/Include" -I"D:/STM32CubeIDE/chip header/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/uart.d" -MT"Src/uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/uart.o"
+arm-none-eabi-gcc -o "UART_MOD_NUCLEO.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\STM32CubeIDE\UART_MOD_NUCLEO\STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART_MOD_NUCLEO.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: UART_MOD_NUCLEO.elf
+ 
+arm-none-eabi-size  UART_MOD_NUCLEO.elf 
+arm-none-eabi-objdump -h -S UART_MOD_NUCLEO.elf  > "UART_MOD_NUCLEO.list"
+   text	   data	    bss	    dec	    hex	filename
+   4868	     92	   1900	   6860	   1acc	UART_MOD_NUCLEO.elf
+Finished building: default.size.stdout
+ 
+Finished building: UART_MOD_NUCLEO.list
+ 
+
+20:10:09 Build Finished. 0 errors, 0 warnings. (took 2s.34ms)
+
